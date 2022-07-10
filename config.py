@@ -1,7 +1,7 @@
 import re
 
 
-TOKEN = '5482858677:AAHv1WAKe-wCYA--Fkrn3fZtAf1slCKiRoA'
+TOKEN = '5153846048:AAHwxhFEF8N2QvB32ezx_oSkAGLA3Z9-A2Y'
 Numbers = {1: ['а', 'и', 'с', 'ъ'], 2: ['б', 'й', 'т', 'ы'], 3: ['в', 'к', 'у', 'ь'], 4: ['г', 'л', 'ф', 'е'], 5: ['д', 'м', 'х', 'ю'],
     6: ['е', 'н', 'ц', 'я'], 7: ['ё', 'о', 'ч'], 8: ['ж','п','ш'], 9: ['з','р','щ']}
 
@@ -14,6 +14,9 @@ def transform_text(text: str):
 
     def repl_to_num(c: str):
         res = 0
+        
+        if (c == '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9'):
+            return int(c)
 
         for key in Numbers:
             #print(Numbers)
