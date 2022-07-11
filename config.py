@@ -1,11 +1,11 @@
 import re
 
 
-TOKEN = '5153846048:AAHwxhFEF8N2QvB32ezx_oSkAGLA3Z9-A2Y'
+TOKEN = '5444585267:AAFYoza4h4Y8EXMK0sd-tsxXPAF21cOeZiY'
 Numbers = {1: ['а', 'и', 'с', 'ъ'], 2: ['б', 'й', 'т', 'ы'], 3: ['в', 'к', 'у', 'ь'], 4: ['г', 'л', 'ф', 'е'], 5: ['д', 'м', 'х', 'ю'],
     6: ['е', 'н', 'ц', 'я'], 7: ['ё', 'о', 'ч'], 8: ['ж','п','ш'], 9: ['з','р','щ']}
 
-
+arr2 = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 
 def transform_text(text: str):
@@ -13,18 +13,15 @@ def transform_text(text: str):
     arr = list(text)
 
     def repl_to_num(c: str):
+        if c in arr2: return int(c)
         res = 0
-        
-        if (c == '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9'):
-            return int(c)
-
         for key in Numbers:
-            #print(Numbers)
-            #print(key)
             for item in Numbers[key]:
-                #print(Numbers[key])
                 if(item == c):
                     res = key
+                    break
+            if(res != 0):
+                break
         
         return res
 
